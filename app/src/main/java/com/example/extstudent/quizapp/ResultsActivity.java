@@ -22,6 +22,9 @@ public class ResultsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
+        Intent inent = getIntent();
+        int curScore = inent.getIntExtra("current_score", 0);
+        int maxScore = inent.getIntExtra("max_score", 1);
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         // TO-DO: Get the player score and max score from the previous Activity.
         // Set thse to curScore and maxScore respectively.
@@ -42,6 +45,8 @@ public class ResultsActivity extends AppCompatActivity {
         this.buttonPlayAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent ient = new Intent(com.example.extstudent.quizapp.ResultsActivity.this, com.example.extstudent.quizapp.MainActivity.class);
+                startActivity(ient);
                 ////////////////////////////////////////////////////////////////////////////////////////
                 // TO-DO: Make a play again button that will redirect the user back to the main activity.
                 ////////////////////////////////////////////////////////////////////////////////////////

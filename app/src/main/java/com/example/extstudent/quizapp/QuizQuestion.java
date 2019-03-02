@@ -14,6 +14,7 @@ public class QuizQuestion extends AppCompatActivity {
 
     // Constructor
     QuizQuestion() {
+
     }
 
     protected void setQuestion(String question) {
@@ -60,15 +61,20 @@ public class QuizQuestion extends AppCompatActivity {
         return choiceD;
     }
 
+    protected String getCorrectAnswer() {return  correctAnswer;}
+
     protected boolean isCorrectAnswer(String answer) {
         if (this.correctAnswer == null) {
             // No correct answer has been set.
             return false;
         }
+
+        if (getCorrectAnswer() == answer){
+            return true;
+        }
         /////////////////////////////////////////////////
         // TO-DO: Compare the passed in answer with the class' correct answer.
         /////////////////////////////////////////////////
-
         return false;
     }
 }

@@ -69,9 +69,13 @@ public class QuizActivity extends AppCompatActivity {
                         // You can set the reference from the quizQuestionList.
                         // Use currentQuestionNumber as the index (remember to increment this at the end so that we can fetch the next question index).
                         ///////////////////////////////////////////////////////////////////////////////////////////////////////
+                        currentQuestionNumber++;
                     }
                     else {
                         Intent inent = new Intent(com.example.extstudent.quizapp.QuizActivity.this, com.example.extstudent.quizapp.ResultsActivity.class);
+                        inent.putExtra("current_score", currentScore);
+                        inent.putExtra("max_score", maxScore);
+                        startActivity(inent);
                         // No questions left to ask. Transition the user to the results page.
 
                         ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,29 +95,40 @@ public class QuizActivity extends AppCompatActivity {
         this.setQuestionView(this.currentQuestion);
     }
 
-
+    QuizQuestion firstQuestion = null;
+    QuizQuestion secondQuestion = null;
+    QuizQuestion thridQuestion = null;
 
     private void initQuestions() {
         this.quizQuestionList = new ArrayList<QuizQuestion>();  // Initialize our question array.
         //Question 1
-        QuizQuestion FirstQuestion = new QuizQuestion();
-        FirstQuestion.setQuestion("What country offered presidency to Albert Einstein in 1952?");
-        FirstQuestion.setChoiceA("Egypt");
-        FirstQuestion.setChoiceB("Israel");
-        FirstQuestion.setChoiceC("Germany");
-        FirstQuestion.setChoiceD("France");
-        FirstQuestion.setCorrectAnswer("Israel");
-        quizQuestionList.add(FirstQuestion);
+        firstQuestion = new QuizQuestion();
+        firstQuestion.setQuestion("What country offered presidency to Albert Einstein in 1952?");
+        firstQuestion.setChoiceA("Egypt");
+        firstQuestion.setChoiceB("Israel");
+        firstQuestion.setChoiceC("Germany");
+        firstQuestion.setChoiceD("France");
+        firstQuestion.setCorrectAnswer("Israel");
+        quizQuestionList.add(firstQuestion);
         //Question 2
-        QuizQuestion SecondQuestion = new QuizQuestion();
-        SecondQuestion.setQuestion("The scientific unit named after Sir Isaac Newton measures what?");
-        quizQuestionList.add(SecondQuestion);
+        secondQuestion = new QuizQuestion();
+        secondQuestion.setQuestion("The scientific unit named after Sir Isaac Newton measures what?");
+        secondQuestion.setChoiceA("Distance");
+        secondQuestion.setChoiceB("Speed");
+        secondQuestion.setChoiceC("Force");
+        secondQuestion.setChoiceD("Atomic Decay");
+        secondQuestion.setCorrectAnswer("Force");
+        //quizQuestionList.add(secondQuestion);
         //Question 3
-        QuizQuestion ThirdQuestion = new QuizQuestion();
-        ThirdQuestion.setQuestion("What inorganic molecule is produced by lightning?");
-        //Question 4
-        QuizQuestion FourthQuestion = new QuizQuestion();
-        FourthQuestion.setQuestion("What color do you get from adding all the colors of light?");
+        thridQuestion = new QuizQuestion();
+        thridQuestion.setQuestion("What color do you get from adding all the colors of light?");
+        thridQuestion.setChoiceA("Blue");
+        thridQuestion.setChoiceB("Black");
+        thridQuestion.setChoiceC("White");
+        thridQuestion.setChoiceD("Rainbow");
+        thridQuestion.setCorrectAnswer("White");
+        //quizQuestionList.add(thridQuestion);
+
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +136,7 @@ public class QuizActivity extends AppCompatActivity {
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
         //this.currentQuestion = /*Your first question*/;
-
+        this.currentQuestion = firstQuestion;
         // Set the current, score, and total question size.
         this.currentQuestionNumber = 1;
         this.maxScore = this.quizQuestionList.size();
@@ -136,19 +151,25 @@ public class QuizActivity extends AppCompatActivity {
 
         // Clear the radio button checks just encase it was been set previously.
         radioGroupQuestion.clearCheck();
-
         // Loads the current question view.
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         // TO-DO: Set the UI view (all your widgets) with the current QuizQuestion passed in.
         // Hint: Use your getters from the QuizQuestion class to get the values stored there.
         // Set the following widget text:
-        // - The question text (i.e. Question #1).
-        // - Set the question to ask.
-        // - Set all for radio button text.
+    // - The question text (i.e. Question #1).
+    // - Set the question to ask.
+    // - Set all for radio button text.
         // - Set the score view with the current score (remeber to convert integer to string).
         //   Example: Score: 2
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
+        textViewQuestion.setText(currentQuestion.getQuestion());
+        radioButtonA.setText(currentQuestion.getChoiceA());
+        radioButtonB.setText(currentQuestion.getChoiceB());
+        radioButtonC.setText(currentQuestion.getChoiceC());
+        radioButtonD.setText(currentQuestion.getChoiceD());
+        textViewQuestionTitle.setText("Question #" + currentQuestionNumber);
     }
+
 
     private boolean validateAnswer() {
         // Validate the current answer selected.
