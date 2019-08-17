@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UCSD EXTENSION</string>
+    <string name="Welcome_Text" translatable="false">Bienvenu dans l\'application d\'UCSD!</string>
+    <string name="Text_Button" translatable="false">"Cliquez sur le visage du père Noël pour commencer "</string>
+</resources>

@@ -2,5 +2,13 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JT" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Quizz-app" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/andriod-1-week-2-photos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/android-1-week-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/android-1-week-3-snap" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/android-2-final-project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/android-2-week-2-loadmore" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/android-2-week-3-navigation" vcs="Git" />
   </component>
 </project>

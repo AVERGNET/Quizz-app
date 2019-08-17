@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UCSD EXTENSION</string>
+    <string name="Welcome_Text" translatable="false">"¡Bienvenido a la aplicación de extensión UCSD! "</string>
+    <string name="Text_Button" translatable="false">"Haga clic en la cara de Santa para comenzar "</string>
+</resources>
